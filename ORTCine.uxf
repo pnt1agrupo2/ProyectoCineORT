@@ -1,0 +1,25 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>100</x><y>90</y><w>210</w><h>120</h></coordinates><panel_attributes>Cliente
+--
+-edad: int
+-nombre:String
+-apellido:String
+-entrada:Entrada
+--
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>390</y><w>210</w><h>120</h></coordinates><panel_attributes>Pelicula
+--
+-nombre:String
+-genero:enum
+-estaDoblada:boolean
+-esAtp:boolean
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>100</x><y>240</y><w>210</w><h>130</h></coordinates><panel_attributes>Entrada
+--
+-vaor:double
+-numeroButaca:int
+-sala:String
+-pelicula:Pelicula
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

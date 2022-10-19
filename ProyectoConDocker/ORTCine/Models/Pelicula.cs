@@ -6,9 +6,9 @@ namespace ProyectoCine
 {
     class Pelicula
     {
-        private String nombre;
-        private String genero;
-        private Boolean estaDoblada;
-        private Boolean esAtp;
+        public String nombre { get; set; }
+        public String genero { get; set; }
+        public Boolean estaDoblada { get; set; }
+        public Boolean esAtp { get; set; }
     }
 }

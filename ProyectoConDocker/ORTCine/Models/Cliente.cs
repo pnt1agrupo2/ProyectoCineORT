@@ -6,8 +6,9 @@ namespace ProyectoCine
 {
     class Cliente
     {
-        private int edad;
-        private String nombre;
-        private String apellido;
+        
+        public int edad { get; set; }
+        public String nombre { get; set; }
+        public String apellido { get; set; }
     }
 }

@@ -6,9 +6,9 @@ namespace ProyectoCine
 {
     class Entrada
     {
-        private double valor;
-        private int numeroButaca;
-        private String sala;
+        public double valor { get; set; }
+        public int numeroButaca { get; set; }
+        public String sala { get; set; }
 
     }
 }
