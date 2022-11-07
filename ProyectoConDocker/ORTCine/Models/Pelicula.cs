@@ -4,8 +4,10 @@ using System.Text;
 
 namespace ProyectoCine
 {
-    class Pelicula
+    public class Pelicula
     {
+        public int peliculaID { get; set; }
+        public int entradaDisponibles { get; set; }
         public String nombre { get; set; }
         public String genero { get; set; }
         public Boolean estaDoblada { get; set; }

@@ -1,14 +1,21 @@
-﻿using ProyectoCine;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ORTCine.Models
 {
     public class Cine
     {
+       
         public int CineID { get; set; }
+        [Display(Name = "Nombre")]
         public String nombre { get; set; }
 
 
-        /*public virtual ICollection<Pelicula> funciones { get; set; }
-        public virtual ICollection<Cliente> clientes { get; set; }*/
+        public virtual ICollection<Pelicula> Funciones { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }
+
