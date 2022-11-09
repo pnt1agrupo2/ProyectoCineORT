@@ -10,23 +10,23 @@ using ORTCine.Models;
 
 namespace ORTCine.Controllers
 {
-    public class ClienteController : Controller
+    public class ClientesController : Controller
     {
         private readonly ORTCineDBContext _context;
 
-        public ClienteController(ORTCineDBContext context)
+        public ClientesController(ORTCineDBContext context)
         {
             _context = context;
         }
 
-        // GET: Cliente
+        // GET: Clientes
         public async Task<IActionResult> Index()
         {
             return View(await _context.Clientes.ToListAsync());
         }
 
-        // GET: Cliente/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Clientes/Details/5
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace ORTCine.Controllers
             }
 
             var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -43,21 +43,22 @@ namespace ORTCine.Controllers
             return View(cliente);
         }
 
-        // GET: Cliente/Create
+        // GET: Clientes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Cliente/Create
+        // POST: Clientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,edad,nombre,apellido")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("edad,nombre,apellido,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                cliente.Id = Guid.NewGuid();
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -65,8 +66,8 @@ namespace ORTCine.Controllers
             return View(cliente);
         }
 
-        // GET: Cliente/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Clientes/Edit/5
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
@@ -81,14 +82,14 @@ namespace ORTCine.Controllers
             return View(cliente);
         }
 
-        // POST: Cliente/Edit/5
+        // POST: Clientes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,edad,nombre,apellido")] Cliente cliente)
+        public async Task<IActionResult> Edit(Guid id, [Bind("edad,nombre,apellido,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Cliente cliente)
         {
-            if (id != cliente.id)
+            if (id != cliente.Id)
             {
                 return NotFound();
             }
@@ -102,7 +103,7 @@ namespace ORTCine.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.id))
+                    if (!ClienteExists(cliente.Id))
                     {
                         return NotFound();
                     }
@@ -116,8 +117,8 @@ namespace ORTCine.Controllers
             return View(cliente);
         }
 
-        // GET: Cliente/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Clientes/Delete/5
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -125,7 +126,7 @@ namespace ORTCine.Controllers
             }
 
             var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -134,10 +135,10 @@ namespace ORTCine.Controllers
             return View(cliente);
         }
 
-        // POST: Cliente/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var cliente = await _context.Clientes.FindAsync(id);
             _context.Clientes.Remove(cliente);
@@ -145,9 +146,9 @@ namespace ORTCine.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClienteExists(int id)
+        private bool ClienteExists(Guid id)
         {
-            return _context.Clientes.Any(e => e.id == id);
+            return _context.Clientes.Any(e => e.Id == id);
         }
     }
 }

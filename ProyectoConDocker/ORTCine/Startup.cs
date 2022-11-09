@@ -13,6 +13,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using ORTCine.Models;
+using System.Data;
 
 namespace ORTCine
 {
@@ -37,6 +40,18 @@ namespace ORTCine
             services.AddDbContext<ORTCineDBContext>(options => options.UseSqlServer(Configuration["ConnectionString:ORTCineDBConnection"]));
             services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
             .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddIdentity<Cliente, Roles>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+
+                options.User.RequireUniqueEmail = true;
+                
+
+            })
+                 .AddEntityFrameworkStores<ORTCineDBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
