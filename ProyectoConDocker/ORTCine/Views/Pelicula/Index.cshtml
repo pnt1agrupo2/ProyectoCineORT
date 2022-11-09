@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ORTCine.Models.Pelicula>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.entradaDisponibles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estaDoblada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.esAtp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.entradaDisponibles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estaDoblada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.esAtp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.peliculaID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.peliculaID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.peliculaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

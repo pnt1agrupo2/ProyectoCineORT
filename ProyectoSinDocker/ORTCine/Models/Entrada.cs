@@ -19,7 +19,7 @@ namespace ORTCine.Models
         public int? PeliculaId { get; set; }
         [Display(Name = "Pelicula")]
         public virtual Pelicula pelicula { get; set; }
-        public int? ClienteId { get; set; }
+        public Guid? ClienteId { get; set; }
         [Display(Name = "Cliente")]
         public virtual Cliente cliente { get; set; }
         

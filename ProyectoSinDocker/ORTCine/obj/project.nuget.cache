@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ZNO9X2cLbuqNY3VGHFtuRJJmZUOHLWpbSpmdhmp+Y1kCzwueNnlLK2fmMXrRTpCJ9pCyXlPNHWGAMEoEEbS7ug==",
+  "dgSpecHash": "7leTACXjkdIDhnmtN2DqIdljxB4h2UEl+gzLTI6Sc9mUqeq4Pyx4Rh8higgnPKLxcpRIoyh0jFynWpq3P2yvVg==",
   "success": true,
   "projectFilePath": "F:\\GitHub\\ProyectoCineORT\\ProyectoSinDocker\\ORTCine\\ORTCine.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.30\\microsoft.aspnetcore.cryptography.internal.3.1.30.nupkg.sha512",
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.30\\microsoft.aspnetcore.cryptography.keyderivation.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.30\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.3\\microsoft.aspnetcore.jsonpatch.3.1.3.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.3\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.3.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -34,6 +37,8 @@
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.30\\microsoft.extensions.configuration.binder.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.30\\microsoft.extensions.dependencyinjection.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.30\\microsoft.extensions.dependencyinjection.abstractions.3.1.30.nupkg.sha512",
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.30\\microsoft.extensions.identity.core.3.1.30.nupkg.sha512",
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.30\\microsoft.extensions.identity.stores.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.logging\\3.1.30\\microsoft.extensions.logging.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.30\\microsoft.extensions.logging.abstractions.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.extensions.options\\3.1.30\\microsoft.extensions.options.3.1.30.nupkg.sha512",
@@ -165,11 +170,7 @@
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.28\\microsoft.netcore.app.host.win-x64.3.1.28.nupkg.sha512",
-    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

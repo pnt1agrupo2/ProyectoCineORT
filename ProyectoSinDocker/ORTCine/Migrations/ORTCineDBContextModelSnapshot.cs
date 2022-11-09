@@ -21,10 +21,51 @@ namespace ORTCine.Migrations
 
             modelBuilder.Entity("ORTCine.Models.Cliente", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("apellido")
                         .HasColumnType("nvarchar(max)");
@@ -35,7 +76,7 @@ namespace ORTCine.Migrations
                     b.Property<string>("nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Clientes");
                 });
@@ -47,16 +88,16 @@ namespace ORTCine.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Clienteid")
+                    b.Property<Guid?>("ClienteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("PeliculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SalaId")
                         .HasColumnType("int");
 
                     b.Property<int>("numeroButaca")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("peliculaID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("salaID")
                         .HasColumnType("int");
 
                     b.Property<double>("valor")
@@ -64,11 +105,11 @@ namespace ORTCine.Migrations
 
                     b.HasKey("entradaID");
 
-                    b.HasIndex("Clienteid");
+                    b.HasIndex("ClienteId");
 
-                    b.HasIndex("peliculaID");
+                    b.HasIndex("PeliculaId");
 
-                    b.HasIndex("salaID");
+                    b.HasIndex("SalaId");
 
                     b.ToTable("Entrada");
                 });
@@ -120,17 +161,17 @@ namespace ORTCine.Migrations
 
             modelBuilder.Entity("ORTCine.Models.Entrada", b =>
                 {
-                    b.HasOne("ORTCine.Models.Cliente", null)
+                    b.HasOne("ORTCine.Models.Cliente", "cliente")
                         .WithMany("BoletosComprados")
-                        .HasForeignKey("Clienteid");
+                        .HasForeignKey("ClienteId");
 
                     b.HasOne("ORTCine.Models.Pelicula", "pelicula")
-                        .WithMany()
-                        .HasForeignKey("peliculaID");
+                        .WithMany("BoletosVendidos")
+                        .HasForeignKey("PeliculaId");
 
                     b.HasOne("ORTCine.Models.Sala", "sala")
-                        .WithMany()
-                        .HasForeignKey("salaID");
+                        .WithMany("BoletosVendidos")
+                        .HasForeignKey("SalaId");
                 });
 #pragma warning restore 612, 618
         }

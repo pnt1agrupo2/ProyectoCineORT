@@ -303,11 +303,6 @@ F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\stat
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTCine.TagHelpers.input.cache
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTCine.TagHelpers.output.cache
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTCine.RazorCoreGenerate.cache
-F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Create.cshtml.g.cs
-F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Delete.cshtml.g.cs
-F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Details.cshtml.g.cs
-F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Edit.cshtml.g.cs
-F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Index.cshtml.g.cs
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Pelicula\Create.cshtml.g.cs
@@ -332,3 +327,13 @@ F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTC
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTCine.dll
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTCine.pdb
 F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\ORTCine.genruntimeconfig.cache
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Create.cshtml.g.cs
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Delete.cshtml.g.cs
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Details.cshtml.g.cs
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Edit.cshtml.g.cs
+F:\GitHub\ProyectoCineORT\ProyectoSinDocker\ORTCine\obj\Debug\netcoreapp3.1\Razor\Views\Clientes\Index.cshtml.g.cs
