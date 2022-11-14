@@ -48,7 +48,8 @@ namespace ORTCine
                 options.Password.RequireUppercase = true;
 
                 options.User.RequireUniqueEmail = true;
-                
+                options.SignIn.RequireConfirmedEmail = false;
+
 
             })
                  .AddEntityFrameworkStores<ORTCineDBContext>();

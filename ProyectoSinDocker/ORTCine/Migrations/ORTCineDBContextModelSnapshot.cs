@@ -68,12 +68,14 @@ namespace ORTCine.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("apellido")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("edad")
                         .HasColumnType("int");
 
                     b.Property<string>("nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -92,16 +94,14 @@ namespace ORTCine.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("PeliculaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SalaId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("numeroButaca")
                         .HasColumnType("int");
 
-                    b.Property<double>("valor")
-                        .HasColumnType("float");
+                    b.Property<int?>("salaID")
+                        .HasColumnType("int");
 
                     b.HasKey("entradaID");
 
@@ -109,7 +109,7 @@ namespace ORTCine.Migrations
 
                     b.HasIndex("PeliculaId");
 
-                    b.HasIndex("SalaId");
+                    b.HasIndex("salaID");
 
                     b.ToTable("Entrada");
                 });
@@ -121,22 +121,26 @@ namespace ORTCine.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("entradaDisponibles")
-                        .HasColumnType("int");
-
                     b.Property<bool>("esAtp")
                         .HasColumnType("bit");
 
                     b.Property<bool>("estaDoblada")
                         .HasColumnType("bit");
 
-                    b.Property<string>("genero")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("genero")
+                        .HasColumnType("int");
 
                     b.Property<string>("nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("salaId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.HasKey("peliculaID");
+
+                    b.HasIndex("salaId");
 
                     b.ToTable("Pelicula");
                 });
@@ -167,11 +171,22 @@ namespace ORTCine.Migrations
 
                     b.HasOne("ORTCine.Models.Pelicula", "pelicula")
                         .WithMany("BoletosVendidos")
-                        .HasForeignKey("PeliculaId");
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("ORTCine.Models.Sala", "sala")
+                    b.HasOne("ORTCine.Models.Sala", null)
                         .WithMany("BoletosVendidos")
-                        .HasForeignKey("SalaId");
+                        .HasForeignKey("salaID");
+                });
+
+            modelBuilder.Entity("ORTCine.Models.Pelicula", b =>
+                {
+                    b.HasOne("ORTCine.Models.Sala", "sala")
+                        .WithMany()
+                        .HasForeignKey("salaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

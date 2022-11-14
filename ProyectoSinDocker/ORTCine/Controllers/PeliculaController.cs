@@ -22,7 +22,8 @@ namespace ORTCine.Controllers
         // GET: Pelicula
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pelicula.ToListAsync());
+            var oRTCineDBContext = _context.Pelicula.Include(p => p.sala);
+            return View(await oRTCineDBContext.ToListAsync());
         }
 
         // GET: Pelicula/Details/5
@@ -34,6 +35,7 @@ namespace ORTCine.Controllers
             }
 
             var pelicula = await _context.Pelicula
+                .Include(p => p.sala)
                 .FirstOrDefaultAsync(m => m.peliculaID == id);
             if (pelicula == null)
             {
@@ -46,16 +48,16 @@ namespace ORTCine.Controllers
         // GET: Pelicula/Create
         public IActionResult Create()
         {
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID");
             return View();
         }
 
         // POST: Pelicula/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("peliculaID,entradaDisponibles,nombre,genero,estaDoblada,esAtp")] Pelicula pelicula)
+        public async Task<IActionResult> Create([Bind("peliculaID,nombre,genero,estaDoblada,esAtp,salaId")] Pelicula pelicula)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +65,7 @@ namespace ORTCine.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "numeroSala", pelicula.salaId);
             return View(pelicula);
         }
 
@@ -79,6 +82,7 @@ namespace ORTCine.Controllers
             {
                 return NotFound();
             }
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID", pelicula.salaId);
             return View(pelicula);
         }
 
@@ -87,7 +91,7 @@ namespace ORTCine.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("peliculaID,entradaDisponibles,nombre,genero,estaDoblada,esAtp")] Pelicula pelicula)
+        public async Task<IActionResult> Edit(int id, [Bind("peliculaID,nombre,genero,estaDoblada,esAtp,salaId")] Pelicula pelicula)
         {
             if (id != pelicula.peliculaID)
             {
@@ -114,6 +118,7 @@ namespace ORTCine.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID", pelicula.salaId);
             return View(pelicula);
         }
 
@@ -126,6 +131,7 @@ namespace ORTCine.Controllers
             }
 
             var pelicula = await _context.Pelicula
+                .Include(p => p.sala)
                 .FirstOrDefaultAsync(m => m.peliculaID == id);
             if (pelicula == null)
             {

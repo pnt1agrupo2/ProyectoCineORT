@@ -9,17 +9,29 @@ namespace ORTCine.Models
     public class Pelicula
     {
         public int peliculaID { get; set; }
-        [Display(Name = "Entradas disponibles")]
-        public int entradaDisponibles { get; set; }
+               
+        [Required (ErrorMessage = "Requiere un titulo")]
         [Display(Name = "Título")]
         public String nombre { get; set; }
+        
+        [Required(ErrorMessage = "Requiere un género")]
         [Display(Name = "Género")]
-        public String genero { get; set; }
+        public Genero genero { get; set; }
+
         [Display(Name = "Está subtitulada")]
         public Boolean estaDoblada { get; set; }
+        
         [Display(Name = "Es apta para todo público")]
         public Boolean esAtp { get; set; }
+
+        [Display(Name = "Numero de sala")]
+        [Required(ErrorMessage = "Se requiere una sala")]
+        public int? salaId { get; set; }
+
         
+        public Sala sala { get; set; }
         public virtual ICollection<Entrada> BoletosVendidos { get; set; }
     }
+
+    
 }

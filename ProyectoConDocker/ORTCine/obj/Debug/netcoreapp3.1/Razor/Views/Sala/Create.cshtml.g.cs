@@ -27,7 +27,7 @@ using ORTCine.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e8d17ebc4ade5d3b98eda1b665c11ab16a967657", @"/Views/Sala/Create.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"112e3136d55d512d8189152c557d38e66faf7e9f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d92b9f703d7b06f8ac792c726f2573f572f80595", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Sala_Create : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ORTCine.Models.Sala>
     #nullable disable

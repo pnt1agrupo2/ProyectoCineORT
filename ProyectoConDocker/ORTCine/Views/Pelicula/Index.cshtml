@@ -13,9 +13,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.entradaDisponibles)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.nombre)
             </th>
             <th>
@@ -27,15 +24,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.esAtp)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sala)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.entradaDisponibles)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.nombre)
             </td>
@@ -47,6 +44,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.esAtp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sala.salaID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.peliculaID">Edit</a> |
