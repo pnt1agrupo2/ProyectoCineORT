@@ -17,7 +17,9 @@ namespace ORTCine.Models
         [Display(Name = "Capacidad máxima")]
         [Range(50, 75, ErrorMessage = "La capacidad debe estar entre 50 y 75")]
         public int capacidadMax { get; set; }
-        
+
+
+        //public virtual IEnumerable<int> Butacas { get; set; }
         public virtual ICollection<Entrada> BoletosVendidos { get; set; }
     }
 }

@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using ORTCine.Models;
 using System.Data;
+using AutoMapper;
 
 namespace ORTCine
 {
@@ -31,6 +32,8 @@ namespace ORTCine
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -43,8 +46,8 @@ namespace ORTCine
 
             services.AddIdentity<Cliente, Roles>(options =>
             {
-                options.Password.RequiredLength = 8;
-                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
 
                 options.User.RequireUniqueEmail = true;
@@ -72,6 +75,8 @@ namespace ORTCine
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

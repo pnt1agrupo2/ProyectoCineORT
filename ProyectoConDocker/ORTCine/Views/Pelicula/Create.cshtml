@@ -13,31 +13,33 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nombre" class="control-label"></label>
+                <b>
+                    <label asp-for="nombre" class="control-label text-light"></label></b>
+
                 <input asp-for="nombre" class="form-control" />
                 <span asp-validation-for="nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="genero" class="control-label"></label>
+                <label asp-for="genero" class="control-label text-light"></label>
                 <select asp-for="genero" class="form-control"asp-items="@Html.GetEnumSelectList<Genero>()"></select>
                 <span asp-validation-for="genero" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
+                <label class="form-check-label text-light">
                     <input class="form-check-input" asp-for="estaDoblada" /> @Html.DisplayNameFor(model => model.estaDoblada)
                 </label>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
+                <label class="form-check-label text-light">
                     <input class="form-check-input" asp-for="esAtp" /> @Html.DisplayNameFor(model => model.esAtp)
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="salaId" class="control-label"></label>
+                <label asp-for="salaId" class="control-label text-light"></label>
                 <select asp-for="salaId" class ="form-control" asp-items="ViewBag.salaId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary text-light" />
             </div>
         </form>
     </div>

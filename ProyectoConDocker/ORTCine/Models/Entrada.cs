@@ -14,17 +14,25 @@ namespace ORTCine.Models
         [Range(1, 50, ErrorMessage = "La butaca debe estar entre la 1 y la 50")]
         [Display(Name = "Número de butaca")]
         public int numeroButaca { get; set; }
-        
-        public int? PeliculaId { get; set; }
 
         [Required(ErrorMessage = "Requiere una pelicula")]
-        [Display(Name = "Pelicula")]
-        public virtual Pelicula pelicula { get; set; }
+        public int? PeliculaId { get; set; }
+
+        [Required(ErrorMessage = "Ingrese el usuario que realiza la operacion")]
         public Guid? ClienteId { get; set; }
         
+        public int? salaId { get; set; }
+
+        
+        [Display(Name = "Pelicula")]
+        public virtual Pelicula pelicula { get; set; }
+
         [Display(Name = "Cliente")]
         public virtual Cliente cliente { get; set; }
-        
+
+        [Display(Name = "Numero de sala")]
+        public virtual Sala sala { get; set; }
+
 
 
     }

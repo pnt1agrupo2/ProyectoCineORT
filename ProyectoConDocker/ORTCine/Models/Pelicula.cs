@@ -24,6 +24,7 @@ namespace ORTCine.Models
         [Display(Name = "Es apta para todo público")]
         public Boolean esAtp { get; set; }
 
+        
         [Display(Name = "Numero de sala")]
         [Required(ErrorMessage = "Se requiere una sala")]
         public int? salaId { get; set; }

@@ -22,7 +22,7 @@ namespace ORTCine.Controllers
         // GET: Entrada
         public async Task<IActionResult> Index()
         {
-            var oRTCineDBContext = _context.Entrada.Include(e => e.cliente).Include(e => e.pelicula);
+            var oRTCineDBContext = _context.Entrada.Include(e => e.cliente).Include(e => e.pelicula).Include(e => e.sala);
             return View(await oRTCineDBContext.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace ORTCine.Controllers
             var entrada = await _context.Entrada
                 .Include(e => e.cliente)
                 .Include(e => e.pelicula)
+                .Include(e => e.sala)
                 .FirstOrDefaultAsync(m => m.entradaID == id);
             if (entrada == null)
             {
@@ -51,6 +52,7 @@ namespace ORTCine.Controllers
         {
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "apellido");
             ViewData["PeliculaId"] = new SelectList(_context.Pelicula, "peliculaID", "nombre");
+            //ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID");
             return View();
         }
 
@@ -60,15 +62,23 @@ namespace ORTCine.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("entradaID,numeroButaca,PeliculaId,ClienteId")] Entrada entrada)
-        {
+        { 
+            var pelicula = _context.Pelicula.FirstOrDefault(e => e.peliculaID == entrada.PeliculaId);
+            //var entrada2 = _context.Pelicula.Where(e => e.);
+            entrada.salaId = pelicula.salaId;
             if (ModelState.IsValid)
             {
                 _context.Add(entrada);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                return BadRequest(ModelState.Values);
+            }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "apellido", entrada.ClienteId);
             ViewData["PeliculaId"] = new SelectList(_context.Pelicula, "peliculaID", "nombre", entrada.PeliculaId);
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID", entrada.salaId);
             return View(entrada);
         }
 
@@ -87,6 +97,7 @@ namespace ORTCine.Controllers
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "apellido", entrada.ClienteId);
             ViewData["PeliculaId"] = new SelectList(_context.Pelicula, "peliculaID", "nombre", entrada.PeliculaId);
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID", entrada.salaId);
             return View(entrada);
         }
 
@@ -95,7 +106,7 @@ namespace ORTCine.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("entradaID,numeroButaca,PeliculaId,ClienteId")] Entrada entrada)
+        public async Task<IActionResult> Edit(int id, [Bind("entradaID,numeroButaca,PeliculaId,ClienteId,salaId")] Entrada entrada)
         {
             if (id != entrada.entradaID)
             {
@@ -124,6 +135,7 @@ namespace ORTCine.Controllers
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "apellido", entrada.ClienteId);
             ViewData["PeliculaId"] = new SelectList(_context.Pelicula, "peliculaID", "nombre", entrada.PeliculaId);
+            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID", entrada.salaId);
             return View(entrada);
         }
 
@@ -138,6 +150,7 @@ namespace ORTCine.Controllers
             var entrada = await _context.Entrada
                 .Include(e => e.cliente)
                 .Include(e => e.pelicula)
+                .Include(e => e.sala)
                 .FirstOrDefaultAsync(m => m.entradaID == id);
             if (entrada == null)
             {

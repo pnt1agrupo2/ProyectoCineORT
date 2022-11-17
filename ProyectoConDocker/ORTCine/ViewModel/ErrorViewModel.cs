@@ -1,6 +1,6 @@
 using System;
 
-namespace ORTCine.Models
+namespace ORTCine.ViewModel
 {
     public class ErrorViewModel
     {

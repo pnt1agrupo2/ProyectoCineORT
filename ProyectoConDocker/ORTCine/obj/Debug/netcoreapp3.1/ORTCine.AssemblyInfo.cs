@@ -11,7 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("57f33952-9e7d-49e3-8441-e7ee353b71da")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("0dc4c3b7-35e7-4e58-b906-b87673f7188f")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ORTCine")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
