@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 style="-webkit-text-fill-color:white">Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table text-light">
     <thead>
         <tr>
             <th>
@@ -52,6 +52,7 @@
                 <a asp-action="Edit" asp-route-id="@item.peliculaID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.peliculaID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.peliculaID">Delete</a>
+                
             </td>
         </tr>
 }

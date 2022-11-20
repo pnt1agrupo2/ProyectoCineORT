@@ -4,36 +4,46 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 style="-webkit-text-fill-color:white">Compra de entrada</h1>
 
-<h4>Entrada</h4>
+@*<h4 style="-webkit-text-fill-color:white">Entrada</h4>*@
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
             <div class="form-group">
-                <label asp-for="numeroButaca" class="control-label"></label>
-                <input asp-for="numeroButaca" class="form-control" />
+                <label asp-for="PeliculaId" class="control-label text-light">Pelicula</label>
+                <select asp-for="PeliculaId" class ="form-control" asp-items="ViewBag.PeliculaId">
+                    <option value="">Seleccione una pelicula</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClienteId" class="control-label text-light">Cliente a realizar la operación</label>
+                <select asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId">
+                    <option value="">Seleccione un cliente</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="numeroButaca" class="control-label text-light"></label>
+            <input asp-for="numeroButaca" class="form-control" />
+             <span asp-validation-for="numeroButaca" class="text-danger"></span>
                 <span asp-validation-for="numeroButaca" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="salaId" class="control-label"></label>
+               @Html.DisplayNameFor(model => model.estaDoblada)
+            </div>*@
             <div class="form-group">
-                <label asp-for="PeliculaId" class="control-label"></label>
-                <select asp-for="PeliculaId" class ="form-control" asp-items="ViewBag.PeliculaId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <select asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Comprar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar a la cartelera</a>
 </div>
 
 @section Scripts {

@@ -64,8 +64,20 @@ namespace ORTCine.Controllers
         public async Task<IActionResult> Create([Bind("entradaID,numeroButaca,PeliculaId,ClienteId")] Entrada entrada)
         { 
             var pelicula = _context.Pelicula.FirstOrDefault(e => e.peliculaID == entrada.PeliculaId);
-            //var entrada2 = _context.Pelicula.Where(e => e.);
             entrada.salaId = pelicula.salaId;
+            var entradas = _context.Entrada.Where(e => e.PeliculaId == entrada.PeliculaId).ToList();
+            bool esButacaValida = true;
+            int index = 0;
+            do {
+                if (entradas[index].numeroButaca == entrada.numeroButaca)
+                {
+                    esButacaValida = false;
+                    return BadRequest("La butaca seleccionada ya esta comprada");
+                }
+                index++;
+            } while (esButacaValida);
+   
+            
             if (ModelState.IsValid)
             {
                 _context.Add(entrada);

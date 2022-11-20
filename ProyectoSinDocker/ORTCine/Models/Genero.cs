@@ -11,6 +11,10 @@ namespace ORTCine.Models
         [Display(Name = "Comedia")]
         Comedia,
         [Display(Name = "Thriller")]
-        Thriller
+        Thriller,
+        [Display(Name = "Romantica")]
+        Romantica,
+        [Display(Name = "Drama")]
+        Drama
     }
 }

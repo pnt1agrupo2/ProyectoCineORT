@@ -100,7 +100,7 @@ namespace ORTCine.Migrations
                     b.Property<int>("numeroButaca")
                         .HasColumnType("int");
 
-                    b.Property<int?>("salaID")
+                    b.Property<int?>("salaId")
                         .HasColumnType("int");
 
                     b.HasKey("entradaID");
@@ -109,7 +109,7 @@ namespace ORTCine.Migrations
 
                     b.HasIndex("PeliculaId");
 
-                    b.HasIndex("salaID");
+                    b.HasIndex("salaId");
 
                     b.ToTable("Entrada");
                 });
@@ -175,9 +175,9 @@ namespace ORTCine.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ORTCine.Models.Sala", null)
+                    b.HasOne("ORTCine.Models.Sala", "sala")
                         .WithMany("BoletosVendidos")
-                        .HasForeignKey("salaID");
+                        .HasForeignKey("salaId");
                 });
 
             modelBuilder.Entity("ORTCine.Models.Pelicula", b =>
