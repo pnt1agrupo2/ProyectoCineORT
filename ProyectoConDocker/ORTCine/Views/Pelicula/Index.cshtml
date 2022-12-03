@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 style="-webkit-text-fill-color:white">Index</h1>
+<h1 style="-webkit-text-fill-color:white">Cartelera de Peliculas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Agregar pelicula a la cartelera</a>
 </p>
 <table class="table text-light">
     <thead>
@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.sala.salaID)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.peliculaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.peliculaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.peliculaID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.peliculaID">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.peliculaID">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.peliculaID">Eliminar</a>
                 
             </td>
         </tr>

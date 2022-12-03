@@ -35,6 +35,7 @@
                 <label asp-for="salaId" class="control-label"></label>
                @Html.DisplayNameFor(model => model.estaDoblada)
             </div>*@
+            @ViewBag.Message != null ? <div>@ViewBag.Message</div>
             <div class="form-group">
                 <input type="submit" value="Comprar" class="btn btn-primary" />
             </div>

@@ -72,7 +72,7 @@ namespace ORTCine.Controllers
                 if (entradas[index].numeroButaca == entrada.numeroButaca)
                 {
                     esButacaValida = false;
-                    return BadRequest("La butaca seleccionada ya esta comprada");
+                    ModelState.AddModelError("", "Un usuario ya compró esta butaca");
                 }
                 index++;
             } while (esButacaValida);
