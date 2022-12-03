@@ -25,12 +25,15 @@ namespace ORTCine.Models
         public Boolean esAtp { get; set; }
 
         
-        [Display(Name = "Numero de sala")]
-        [Required(ErrorMessage = "Se requiere una sala")]
         public int? salaId { get; set; }
 
-        
+        [Display(Name = "Numero de sala")]
+        [Required(ErrorMessage = "Se requiere una sala")]
         public Sala sala { get; set; }
+       
+
+
+
         public virtual ICollection<Entrada> BoletosVendidos { get; set; }
     }
 

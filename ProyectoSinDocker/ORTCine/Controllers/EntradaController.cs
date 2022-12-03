@@ -65,18 +65,13 @@ namespace ORTCine.Controllers
         { 
             var pelicula = _context.Pelicula.FirstOrDefault(e => e.peliculaID == entrada.PeliculaId);
             entrada.salaId = pelicula.salaId;
-            var entradas = _context.Entrada.Where(e => e.PeliculaId == entrada.PeliculaId).ToList();
-            bool esButacaValida = true;
-            int index = 0;
-            do {
-                if (entradas[index].numeroButaca == entrada.numeroButaca)
-                {
-                    esButacaValida = false;
-                    ModelState.AddModelError("", "Un usuario ya compró esta butaca");
-                }
-                index++;
-            } while (esButacaValida);
-   
+            var entradas = _context.Entrada.Where(e => e.numeroButaca == entrada.numeroButaca).ToList();
+           
+            if (entradas.Count > 0)
+            {
+                ModelState.AddModelError("", "La butaca ya ha sido seleccionada por otro usuario");
+            }
+           
             
             if (ModelState.IsValid)
             {
@@ -84,10 +79,7 @@ namespace ORTCine.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return BadRequest(ModelState.Values);
-            }
+            
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "apellido", entrada.ClienteId);
             ViewData["PeliculaId"] = new SelectList(_context.Pelicula, "peliculaID", "nombre", entrada.PeliculaId);
             ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "salaID", entrada.salaId);

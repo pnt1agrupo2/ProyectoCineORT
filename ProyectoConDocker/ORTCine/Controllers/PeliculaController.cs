@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ORTCine.Context;
+using ORTCine.Migrations;
 using ORTCine.Models;
 
 namespace ORTCine.Controllers
@@ -31,7 +32,7 @@ namespace ORTCine.Controllers
             }
 
 
-            return View(await peliculas.ToListAsync());
+            return View(await peliculas.Include(e => e.sala).ToListAsync());
 
 
 
@@ -70,6 +71,12 @@ namespace ORTCine.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("peliculaID,nombre,genero,estaDoblada,esAtp,salaId")] Pelicula pelicula)
         {
+            var peliculas = _context.Pelicula.Where(e => e.nombre.Equals(pelicula.nombre)).ToList();
+
+            if (peliculas.Count > 0)
+            {
+                ModelState.AddModelError("", "Ya existe una pelicula con ese nombre");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(pelicula);

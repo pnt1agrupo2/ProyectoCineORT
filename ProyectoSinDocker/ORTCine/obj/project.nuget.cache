@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7leTACXjkdIDhnmtN2DqIdljxB4h2UEl+gzLTI6Sc9mUqeq4Pyx4Rh8higgnPKLxcpRIoyh0jFynWpq3P2yvVg==",
+  "dgSpecHash": "zUwwOlMVbWc3SjjVpJu4DLs1U5uw5p6iIu4DeOajZOql4kBmGwMqCpQFTbvvkfqwB/y7QZRsS+jChpf+HmlrAg==",
   "success": true,
   "projectFilePath": "F:\\GitHub\\ProyectoCineORT\\ProyectoSinDocker\\ORTCine\\ORTCine.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.30\\microsoft.aspnetcore.cryptography.internal.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.30\\microsoft.aspnetcore.cryptography.keyderivation.3.1.30.nupkg.sha512",
     "C:\\Users\\Javier Ivan Moreno\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
