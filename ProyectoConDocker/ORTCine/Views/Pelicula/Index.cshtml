@@ -9,6 +9,13 @@
 <p>
     <a asp-action="Create">Agregar pelicula a la cartelera</a>
 </p>
+<form asp-controller="Pelicula" asp-action="Index" method="get">
+    <p>
+        Titulo: <input type="text" name="id" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+
 <table class="table text-light">
     <thead>
         <tr>

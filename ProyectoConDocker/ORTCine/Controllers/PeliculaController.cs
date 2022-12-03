@@ -20,10 +20,21 @@ namespace ORTCine.Controllers
         }
 
         // GET: Pelicula
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string id)
         {
-            var oRTCineDBContext = _context.Pelicula.Include(p => p.sala);
-            return View(await oRTCineDBContext.ToListAsync());
+            var peliculas = from m in _context.Pelicula
+                            select m;
+
+            if (!String.IsNullOrEmpty(id))
+            {
+                peliculas = peliculas.Where(s => s.nombre!.Contains(id));
+            }
+
+
+            return View(await peliculas.ToListAsync());
+
+
+
         }
 
         // GET: Pelicula/Details/5
