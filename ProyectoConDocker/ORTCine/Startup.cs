@@ -40,7 +40,8 @@ namespace ORTCine
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddDbContext<ORTCineDBContext>(options => options.UseSqlServer(Configuration["ConnectionString:ORTCineDBConnection"]));
+            services.AddDbContext<ORTCineDBContext>(options => 
+            options.UseSqlServer(Configuration["ConnectionString:ORTCineDBConnection"]));
             services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
             .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 

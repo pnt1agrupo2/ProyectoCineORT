@@ -77,15 +77,16 @@ namespace ORTCine.Controllers
             {
                 ModelState.AddModelError("", "Ya existe una pelicula con ese nombre");
             }
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(pelicula);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "numeroSala", pelicula.salaId);
+                return View(pelicula);
             }
-            ViewData["salaId"] = new SelectList(_context.Sala, "salaID", "numeroSala", pelicula.salaId);
-            return View(pelicula);
-        }
+            _context.Add(pelicula);
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Index));
+         }
 
         // GET: Pelicula/Edit/5
         public async Task<IActionResult> Edit(int? id)

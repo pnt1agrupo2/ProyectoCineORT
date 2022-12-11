@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ORTCine.Models
 {
@@ -24,11 +23,11 @@ namespace ORTCine.Models
         [Display(Name = "Es apta para todo público")]
         public Boolean esAtp { get; set; }
 
-        
+        [Required(ErrorMessage = "Se requiere una sala")]
+        [Display(Name = "Numero de sala")]
         public int? salaId { get; set; }
 
         [Display(Name = "Numero de sala")]
-        [Required(ErrorMessage = "Se requiere una sala")]
         public Sala sala { get; set; }
        
 
