@@ -91,11 +91,15 @@ namespace ORTCine.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<Guid?>("ClienteId")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("PeliculaId")
                         .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<string>("nombresala")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("numeroButaca")
                         .HasColumnType("int");
@@ -167,7 +171,9 @@ namespace ORTCine.Migrations
                 {
                     b.HasOne("ORTCine.Models.Cliente", "cliente")
                         .WithMany("BoletosComprados")
-                        .HasForeignKey("ClienteId");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ORTCine.Models.Pelicula", "pelicula")
                         .WithMany("BoletosVendidos")

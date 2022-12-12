@@ -19,7 +19,6 @@ namespace ORTCine.Models
         public int capacidadMax { get; set; }
 
 
-        //public virtual IEnumerable<int> Butacas { get; set; }
         public virtual ICollection<Entrada> BoletosVendidos { get; set; }
     }
 }

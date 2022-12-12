@@ -23,6 +23,7 @@ namespace ORTCine.Models
         
         public int? salaId { get; set; }
 
+
         
         [Display(Name = "Pelicula")]
         public virtual Pelicula pelicula { get; set; }

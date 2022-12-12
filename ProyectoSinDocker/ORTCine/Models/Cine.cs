@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ORTCine.Models
 {
@@ -10,6 +9,7 @@ namespace ORTCine.Models
     {
        
         public int CineID { get; set; }
+        
         [Display(Name = "Nombre")]
         public String nombre { get; set; }
 
